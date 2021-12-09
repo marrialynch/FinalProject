@@ -20,7 +20,7 @@ public class InputListWithString {
     }
 
     public int getPrice() {
-        return price;
+        return Integer.valueOf(price) ;
     }
 
     @Override
