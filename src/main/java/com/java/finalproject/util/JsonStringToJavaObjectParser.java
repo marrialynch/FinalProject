@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class JsonStringToJavaObjectParser {
 
-    public static void main(String[] args) throws Exception {
+    public static int[][] run() throws Exception {
         Gson gson = new Gson();
         ReadJsonAsString r = new ReadJsonAsString();
         String json = ReadJsonAsString.readJson();
@@ -34,7 +34,7 @@ public class JsonStringToJavaObjectParser {
         for (int[] f : finalInput) {
             System.out.println(Arrays.toString(f));
         }
-//        return finalInput;
+        return finalInput;
     }
 
     public static void stringToIntTransformer(String s, Map<String, Integer> cityIndex){
