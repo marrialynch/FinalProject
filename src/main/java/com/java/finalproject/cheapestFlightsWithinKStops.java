@@ -1,9 +1,6 @@
 package com.java.finalproject;
 
-import com.java.finalproject.algorithm.BellmanFord;
-import com.java.finalproject.algorithm.DFS;
-import com.java.finalproject.algorithm.DFSWithPruning;
-import com.java.finalproject.algorithm.Dijkstra;
+import com.java.finalproject.algorithm.*;
 import com.java.finalproject.util.JsonStringToJavaObjectParser;
 
 public class cheapestFlightsWithinKStops {
@@ -31,33 +28,74 @@ public class cheapestFlightsWithinKStops {
                 {16,14,52},{3,10,80},{14,11,85},{15,2,77},{4,11,19},{2,7,49},{10,7,78},{14,6,84},{13,7,50},{11,6,75},
                 {5,10,46},{13,8,43},{9,10,49},{7,12,64},{0,10,76},{5,9,77},{8,3,28},{11,9,28},{12,16,87},{12,6,24},
                 {9,15,94},{5,7,77},{4,10,18},{7,2,11},{9,5,41}};
-        int [][] e4 = JsonStringToJavaObjectParser.run("MOCK_DATA_DENSE.json");
 
 
+        int [][] dense = JsonStringToJavaObjectParser.run("MOCK_DATA_DENSE.json");
+        int [][] sparse = JsonStringToJavaObjectParser.run("MOCK_DATA_SPARSE.json");
 
+        System.out.println("****************************************");
+        System.out.println("BellmanFord dense");
         long start = System.nanoTime();
-        System.out.println(BellmanFord.findCheapestPrice(500, e4, 1, 10, 100));
+        System.out.println(BellmanFord.findCheapestPrice(51, dense, 0, 50, 10));
         long finish = System.nanoTime();
         long timeElapsed = finish - start;
         System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
 
+        System.out.println("****************************************");
+        System.out.println("BellmanFord sparse");
         start = System.nanoTime();
-        System.out.println(DFS.findCheapestPrice(1, e0, 0, 2, 10));
+        System.out.println(BellmanFord.findCheapestPrice(101, sparse, 0, 50, 10));
         finish = System.nanoTime();
         timeElapsed = finish - start;
         System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
 
+
+        System.out.println("****************************************");
+        System.out.println("DFS with Memoization dense");
         start = System.nanoTime();
-        System.out.println(DFSWithPruning.findCheapestPrice(500, e4, 1, 10, 100));
+        System.out.println(DFSWithMemoization.findCheapestPrice(51, dense, 0, 50, 10));
         finish = System.nanoTime();
         timeElapsed = finish - start;
         System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
 
+        System.out.println("****************************************");
+        System.out.println("DFS with Memoization sparse");
         start = System.nanoTime();
-        System.out.println(Dijkstra.findCheapestPrice(500, e4, 1, 10, 100));
+        System.out.println(DFSWithMemoization.findCheapestPrice(101, sparse, 0, 50, 10));
         finish = System.nanoTime();
         timeElapsed = finish - start;
         System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
 
+        System.out.println("****************************************");
+        System.out.println("DFS with Pruning dense");
+        start = System.nanoTime();
+        System.out.println(DFSWithPruning.findCheapestPrice(51, dense, 0, 50, 10));
+        finish = System.nanoTime();
+        timeElapsed = finish - start;
+        System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
+
+        System.out.println("****************************************");
+        System.out.println("DFS with Pruning sparse");
+        start = System.nanoTime();
+        System.out.println(DFSWithPruning.findCheapestPrice(101, sparse, 0, 50, 10));
+        finish = System.nanoTime();
+        timeElapsed = finish - start;
+        System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
+
+        System.out.println("****************************************");
+        System.out.println("Dijkstra dense");
+        start = System.nanoTime();
+        System.out.println(Dijkstra.findCheapestPrice(51, dense, 0, 50, 10));
+        finish = System.nanoTime();
+        timeElapsed = finish - start;
+        System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
+
+        System.out.println("****************************************");
+        System.out.println("Dijkstra sparse");
+        start = System.nanoTime();
+        System.out.println(Dijkstra.findCheapestPrice(101, sparse, 0, 50, 10));
+        finish = System.nanoTime();
+        timeElapsed = finish - start;
+        System.out.println("Time elapsed in nanoseconds is: " + timeElapsed + "\n");
     }
 }
