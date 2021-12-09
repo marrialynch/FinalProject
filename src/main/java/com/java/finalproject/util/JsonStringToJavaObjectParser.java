@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class JsonStringToJavaObjectParser {
 
-    public static int[][] run() throws Exception {
+    public static int[][] run(String file) throws Exception {
         Gson gson = new Gson();
         ReadJsonAsString r = new ReadJsonAsString();
-        String json = ReadJsonAsString.readJson();
+        String json = ReadJsonAsString.readJson(file);
 
         Map<String, Integer> cityIndex = new HashMap<>();
         InputListWithString[] inputList = gson.fromJson(json, InputListWithString[].class);

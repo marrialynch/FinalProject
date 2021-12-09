@@ -31,7 +31,7 @@ public class cheapestFlightsWithinKStops {
                 {16,14,52},{3,10,80},{14,11,85},{15,2,77},{4,11,19},{2,7,49},{10,7,78},{14,6,84},{13,7,50},{11,6,75},
                 {5,10,46},{13,8,43},{9,10,49},{7,12,64},{0,10,76},{5,9,77},{8,3,28},{11,9,28},{12,16,87},{12,6,24},
                 {9,15,94},{5,7,77},{4,10,18},{7,2,11},{9,5,41}};
-        int [][] e4 = JsonStringToJavaObjectParser.run();
+        int [][] e4 = JsonStringToJavaObjectParser.run("MOCK_DATA_DENSE_GRAPH.json");
 
 
 
